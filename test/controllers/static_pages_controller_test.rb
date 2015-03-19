@@ -2,14 +2,16 @@ require 'test_helper'
 
 class StaticPagesControllerTest < ActionController::TestCase
 
-  def assert_title (title)
-    assert_select 'title', "#{title} | Ruby on Rails Tutorial Sample App"
+  def assert_title (title = '')
+    default_title = 'Ruby on Rails Tutorial Sample App'
+    full_title = title.empty? ? default_title : "#{title} | #{default_title}"
+    assert_select 'title', full_title
   end
 
   test 'should get home' do
     get :home
     assert_response :success
-    assert_title 'Home'
+    assert_title
   end
 
   test 'should get help' do

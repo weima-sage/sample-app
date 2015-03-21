@@ -17,4 +17,5 @@ class User < ActiveRecord::Base
   validates(:password, {:length => {:minimum => 6}})
 
   has_secure_password #Add password and password_confirmation attributes
+
 end

@@ -1,0 +1,17 @@
+<% @user ||= current_user %>
+<div class = "stats">
+  <a href="<%= following_user_path(@user)%>" >
+    <stong id = "following" class = 'stats' >
+      <%= @user.following.count %>
+    </stong>
+    following
+  </a>
+
+  <a href="<%= followers_user_path(@user)%>" >
+    <stong id = "followers" class = 'stats' >
+      <%= @user.followers.count %>
+    </stong>
+    followers
+  </a>
+
+</div>
